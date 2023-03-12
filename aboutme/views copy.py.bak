@@ -1,0 +1,103 @@
+# views.py
+
+from django.shortcuts import render
+
+def aboutme(request):
+    # Example data for job resume website
+    name = "Norbert Ukleja"
+    title = "Aspiring Software Engineer"
+    summary = "I am an aspiring software engineer with a passion for computer science and electronics. While I don't have formal job experience or a completed degree, I have continued to learn on my own and have a detail-focused mind that I bring to everything I do."
+    motto = "Impossible does not exist."
+    skills = [
+        "C",
+        "C++",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "NodeJs",
+        "React",
+        "Python",
+        "Arduino",
+        "esp32",
+        "Raspberry Pi",
+        "Networking"
+    ]
+    projects = [
+        {
+            "title": "Smart Home Automation System",
+            "description": "Designing and built a custom smart home automation system using ESP32 and Raspberry Pi. System includes temperature and humidity sensors, motion detectors, and a mobile app for controlling the system remotely.",
+            "skills": [
+                "Python",
+                "HTML",
+                "CSS",
+                "JavaScript"
+                "Raspberry Pi",
+                "ESP32",
+            ],
+            "status": "In Progress",
+        },
+        {
+            "title": "Online AI Coding IDE",
+            "description": "Use GPT-X and speech recognition to create perfect coding environment. No matter what programming language you choose or what skill you are, you just provide main concepts to the engine and AI takes care about the boring stuff.",
+            "skills": [
+                "Python",
+                "Django",
+                "HTML",
+                "CSS",
+                "JavaScript"
+            ],
+            "status": "In Progress",
+        },
+        {
+            "title":"Many , many others...",
+            "description": "And many other unpublished projects. Often lost irretrievably for various reasons during my life of constant motion and stress. Additionally, my biggest flaw is having too many interests, which doesn't make my tasks any easier.",
+            "skills" : [
+                "Graphic editing",
+                "Photo retouching",
+                "Music-making (fl-studio)",
+            ],
+            "status": "&infin;",
+            
+        }
+            
+    
+    ]
+    education = [
+        {
+            "degree": "Computer Science (incomplete)",
+            "universities": [
+                {
+                    "name" : "University of Adam Mickiewicz",
+                    "field of study": "Computer Science",
+                    "location" :  "Poznan",
+                    "total-sems": "7",
+                    "passed-sems"  :  "4"
+                },
+                {
+                    "name" : "Politechnika Poznańska",
+                    "field of study": "Computer Science",
+                    "location" :  "Poznan",
+                    "total-sems": "9",
+                    "passed-sems"  :  "5"
+                },
+            ],
+            "high-school" : [{
+                "name": "Electrical Technical High School",
+                "location" : "Gorzow Wlkp, Poland",
+                "degree" : "Computer technician"
+        }]
+        }
+    ]
+
+    # Pass data to template
+    context = {
+        "name": name,
+        "title": title,
+        "summary": summary,
+        "skills": skills,
+        "projects": projects,
+        "education": education,
+        "motto": motto,
+        
+    }
+    return render(request, "aboutme/aboutme.html", context)

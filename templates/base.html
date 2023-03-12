@@ -1,0 +1,35 @@
+{% load static %}
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            {% block header %}
+            {%endblock%}
+        </header>
+
+        <nav>
+            <ul>
+            {% for item in navbar_items %}
+                <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+            {% endfor %}
+            </ul>
+        </nav>
+
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+
+        <footer>
+            <p>&copy; 2023 My Website</p>
+        </footer>
+    </div>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
